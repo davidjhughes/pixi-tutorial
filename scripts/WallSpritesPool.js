@@ -3,6 +3,20 @@ let WallSpritesPool = function(){
     this.createDecorations();
     this.createFrontEdges();
     this.createBackEdges();
+    this.createSteps();
+}
+
+WallSpritesPool.prototype.borrowStep = function(){
+    return this.steps.shift();
+}
+
+WallSpritesPool.prototype.returnStep = function(sprite){
+    this.steps.push(sprite);
+}
+
+WallSpritesPool.prototype.createSteps = function(){
+    this.steps = [];
+    this.addSprites(2, "step_01", this.steps, 1, 0, 0.25);    
 }
 
 WallSpritesPool.prototype.borrowBackEdge = function(){
@@ -15,8 +29,8 @@ WallSpritesPool.prototype.returnBackEdge = function(sprite){
 
 WallSpritesPool.prototype.createBackEdges = function(){
     this.backEdges = [];
-    this.addSprites(2, "edge_01", this.backEdges, true);
-    this.addSprites(2, "edge_02", this.backEdges, true);
+    this.addSprites(2, "edge_01", this.backEdges, -1, 1);
+    this.addSprites(2, "edge_02", this.backEdges, -1, 1);
 
     this.shuffle(this.backEdges)
 }
@@ -70,13 +84,12 @@ WallSpritesPool.prototype.createWindows = function(){
     this.shuffle(this.windows);
 }
 
-WallSpritesPool.prototype.addSprites = function(amount, frameId, array, flipHorizontal = false){
+WallSpritesPool.prototype.addSprites = function(amount, frameId, array, xScale = 1, xAnchor = 0, yAnchor = 0){
     for(var i = 0; i<amount; i++){
         var sprite = PIXI.Sprite.fromFrame(frameId);
-        if (flipHorizontal){
-            sprite.anchor.x = 1;
-            sprite.scale.x = -1;
-        }
+        sprite.anchor.x = xAnchor;
+        sprite.scale.x = xScale;
+        sprite.anchor.y = yAnchor
         array.push(sprite);
     }
 }
