@@ -1,10 +1,10 @@
 let Scroller = function(stage){
   let texture = PIXI.Texture.fromImage("/assets/images/bg-far.png");
-  this.far = new Layer(texture, 512, 256, 0, 0, -0.128);
+  this.far = new Layer(texture, 512, 256, 0, 0, -0.0128);
   stage.addChild(this.far)
 
   texture = PIXI.Texture.fromImage("/assets/images/bg-mid.png");
-  this.mid = new Layer(texture, 512, 256, 0, 128, -0.64);
+  this.mid = new Layer(texture, 512, 256, 0, 128, -0.064);
   stage.addChild(this.mid);
 
   this.viewportX = 0;
