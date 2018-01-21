@@ -1,3 +1,5 @@
+// CONST
+Main.SCROLL_SPEED = 5;
 
 let Main = function(){
   this.stage = new PIXI.Container();
@@ -20,7 +22,7 @@ Main.prototype.update = function(){
   requestAnimationFrame(this.update.bind(this));
 }
 
-Main.SCROLL_SPEED = 5;
+
 
 
 

@@ -9,8 +9,6 @@ let Layer = function(texture, width, height, xPosition, yPosition, xDelta){
 
 Layer.prototype = Object.create(PIXI.extras.TilingSprite.prototype)
 
-
-
 Layer.prototype.setViewportX = function(newViewportX){
   var distanceTravelled = newViewportX - this.viewportX;
   this.viewportX = newViewportX;
