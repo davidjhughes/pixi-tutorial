@@ -28,7 +28,7 @@ Main.prototype.loadSpriteSheet = function(){
 
 Main.prototype.spriteSheetLoaded = function(){
   this.scroller = new Scroller(this.stage); 
-  requestAnimationFrame(this.update.bind(this));s
+  requestAnimationFrame(this.update.bind(this));
 }
 
 // CONST
