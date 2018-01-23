@@ -12,7 +12,42 @@ MapBuilder.WALL_HEIGHTS = [
   ];
 
 MapBuilder.prototype.createMap = function(){
-
+  this.createWallSpan(3,9,true);
+  this.createGap(1);
+  this.createWallSpan(1, 30);
+  this.createGap(1);
+  this.createWallSpan(2, 18);
+  this.createGap(1);
+  this.createSteppedWallSpan(3, 5, 28);
+  this.createGap(1);
+  this.createWallSpan(1, 10);
+  this.createGap(1);
+  this.createWallSpan(2, 6); 
+  this.createGap(1);
+  this.createWallSpan(1, 8);
+  this.createGap(1);
+  this.createWallSpan(2, 6);
+  this.createGap(1);
+  this.createWallSpan(1, 8);
+  this.createGap(1)
+  this.createWallSpan(2, 7);
+  this.createGap(1);
+  this.createWallSpan(1, 16);
+  this.createGap(1);
+  this.createWallSpan(2, 6);
+  this.createGap(1);
+  this.createWallSpan(1, 22);
+  this.createGap(2);
+  this.createWallSpan(2, 14);
+  this.createGap(2);
+  this.createWallSpan(3, 8);
+  this.createGap(2);
+  this.createSteppedWallSpan(3, 5, 12);
+  this.createGap(3);
+  this.createWallSpan(0, 8);
+  this.createGap(3);
+  this.createWallSpan(1, 50);
+  this.createGap(20);
 }
 
 MapBuilder.prototype.createWallSpan = function(
@@ -43,7 +78,13 @@ MapBuilder.prototype.createWallSpan = function(
 MapBuilder.prototype.createSteppedWallSpan = function(
     heightIndex, spanALength, spanBLength
  ) {
-     
+     if(heightIndex <  2){
+       heightIndex = 2; 
+     }
+
+     this.createWallSpan(heightIndex, spanALength, false, true);
+     this.addWallStep(heightIndex - 2);
+     this.createWallSpan(heightIndex - 2, spanBLength, true, false);
  };
 
 MapBuilder.prototype.createGap = function(spanLength) {

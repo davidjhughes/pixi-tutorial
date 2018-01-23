@@ -5,7 +5,6 @@ let Walls = function(){
     this.createLookupTables();
 
     this.slices = [];
-    this.createTestMap();
 
     this.viewportX = 0;
     this.viewportSliceX = 0;
@@ -109,40 +108,4 @@ Walls.prototype.createLookupTables = function() {
   }
 
 
-  //------------------
-  // Here be test code.
-
-  Walls.prototype.createTestWallSpan = function() {
-    this.addSlice(SliceType.FRONT, 192);
-    this.addSlice(SliceType.WINDOW, 192);
-    this.addSlice(SliceType.DECORATION, 192);
-    this.addSlice(SliceType.WINDOW, 192);
-    this.addSlice(SliceType.DECORATION, 192);
-    this.addSlice(SliceType.WINDOW, 192);
-    this.addSlice(SliceType.DECORATION, 192);
-    this.addSlice(SliceType.WINDOW, 192);
-    this.addSlice(SliceType.BACK, 192);
-  };
-
-  Walls.prototype.createTestSteppedWallSpan = function() {
-    this.addSlice(SliceType.FRONT, 192);
-    this.addSlice(SliceType.WINDOW, 192);
-    this.addSlice(SliceType.DECORATION, 192);
-    this.addSlice(SliceType.STEP, 256);
-    this.addSlice(SliceType.WINDOW, 256);
-    this.addSlice(SliceType.BACK, 256);
-  };
-
-  Walls.prototype.createTestGap = function() {
-    this.addSlice(SliceType.GAP);
-  };
-
-  Walls.prototype.createTestMap = function() {
-    for (var i = 0; i < 10; i++)
-    {
-      this.createTestWallSpan();
-      this.createTestGap();
-      this.createTestSteppedWallSpan();
-      this.createTestGap();
-    }
-  };
+  
